@@ -1,5 +1,5 @@
 # BreakingBadTask Android application
-Android app that lets people search for a breed and find out more about a specific dog.
+Android app that shows list of breaking bad characters
 The application uses the api provided by https://breakingbadapi.com/
 
 ## Description
