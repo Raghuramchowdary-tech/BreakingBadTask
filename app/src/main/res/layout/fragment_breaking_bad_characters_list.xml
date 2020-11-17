@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+<data>
+    <variable
+        name="viewState"
+        type="com.gan.breakingbad.characters.presentation.BreakingBadCharactersListPresenter.ViewState" />
+
+    <variable
+        name="actionHandler"
+        type="com.gan.breakingbad.characters.domain.BreakingBadResultsActionHandler" />
+</data>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/app_bar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:theme="@style/Theme.BreakingBad.AppBarOverlay">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:title="Breaking Bad"
+            app:popupTheme="@style/Theme.BreakingBad.PopupOverlay" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:spanCount="2"
+        android:paddingBottom="82dp"
+        android:paddingTop="16dp"
+        android:clipToPadding="true"
+        isVisible="@{!viewState.error.showError}"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/app_bar"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:listitem="@layout/breaking_bad_card_item"
+        android:id="@+id/breaking_bad_list"
+        />
+
+    <ImageView
+        android:id="@+id/errorImage"
+        imageResource="@{viewState.error.errorIcon}"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="80dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/errorTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:gravity="center"
+        android:paddingStart="64dp"
+        android:paddingEnd="64dp"
+        android:text="@{viewState.error.title}"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/errorImage"/>
+
+    <TextView
+        android:id="@+id/errorSubtitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:paddingStart="64dp"
+        android:paddingEnd="64dp"
+        android:text="@{viewState.error.subtitle}"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/errorTitle"
+        tools:text="We seem to have experiencing technical issues at the moment" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/errorButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:onClick="@{() -> actionHandler.onErrorButtonClicked(viewState.error)}"
+        android:paddingStart="16dp"
+        android:paddingTop="8dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="8dp"
+        android:text="@{viewState.error.buttonText}"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/errorSubtitle"
+        tools:text="Try again" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/errorGroup"
+        isVisible="@{viewState.error.showError}"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:constraint_referenced_ids="errorImage, errorTitle, errorSubtitle, errorButton" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

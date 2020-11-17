@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+<data>
+    <variable
+        name="breakingBadCharacter"
+        type="com.gan.breakingbad.characters.data.BreakingBadCharacter" />
+
+   </data>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    android:orientation="vertical">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/app_bar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:theme="@style/Theme.BreakingBad.AppBarOverlay">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/Theme.BreakingBad.PopupOverlay" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ImageView
+        android:id="@+id/breaking_bad_full_image"
+        android:layout_width="0dp"
+        android:layout_height="262dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/app_bar"
+        app:layout_constraintStart_toStartOf="parent"
+        imageUrl="@{breakingBadCharacter.img}"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"
+        />
+
+
+    <TextView
+        app:layout_constraintTop_toBottomOf="@id/breaking_bad_full_image"
+        app:layout_constraintStart_toStartOf="parent"
+        android:id="@+id/breakingbad_character_name_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:ellipsize="end"
+        android:lineSpacingExtra="3dp"
+        android:maxLines="1"
+        android:scrollHorizontally="true"
+        android:textColor="#303030"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:text="Name: "
+        />
+
+    <TextView
+        app:layout_constraintTop_toBottomOf="@id/breaking_bad_full_image"
+        app:layout_constraintStart_toEndOf="@id/breakingbad_character_name_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/breakingbad_character_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:ellipsize="end"
+        android:lineSpacingExtra="3dp"
+        android:textColor="#303030"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:text="@{breakingBadCharacter.name}"
+        />
+
+    <TextView
+        app:layout_constraintTop_toBottomOf="@id/breakingbad_character_name"
+        app:layout_constraintStart_toStartOf="parent"
+        android:id="@+id/breakingbad_character_occupation_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:ellipsize="end"
+        android:lineSpacingExtra="3dp"
+        android:textColor="#303030"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:text="Occupation: "
+        />
+
+    <TextView
+        app:layout_constraintTop_toBottomOf="@id/breakingbad_character_name"
+        app:layout_constraintStart_toEndOf="@id/breakingbad_character_occupation_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/breakingbad_character_occupation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:ellipsize="end"
+        android:lineSpacingExtra="3dp"
+        android:textColor="#303030"
+        android:textSize="18sp"
+        android:text="@{breakingBadCharacter.occupation.toString().substring(1, breakingBadCharacter.occupation.toString().length() - 1)}"
+        tools:text="Ronaldo Joining Manchester United" />
+
+    <TextView
+        app:layout_constraintTop_toBottomOf="@id/breakingbad_character_occupation"
+        app:layout_constraintStart_toStartOf="parent"
+        android:id="@+id/breakingbad_character_status_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:ellipsize="end"
+        android:lineSpacingExtra="3dp"
+        android:textColor="#303030"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:text="Character Status: "
+        />
+
+    <TextView
+        app:layout_constraintTop_toBottomOf="@id/breakingbad_character_occupation"
+        app:layout_constraintStart_toEndOf="@id/breakingbad_character_status_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/breakingbad_character_status"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:ellipsize="end"
+        android:lineSpacingExtra="3dp"
+        android:textColor="#303030"
+        android:textSize="18sp"
+        android:text="@{breakingBadCharacter.status}"
+        tools:text="Ronaldo Joining Manchester United" />
+
+    <TextView
+        app:layout_constraintTop_toBottomOf="@id/breakingbad_character_status"
+        app:layout_constraintStart_toStartOf="parent"
+        android:id="@+id/breakingbad_character_nickname_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:ellipsize="end"
+        android:lineSpacingExtra="3dp"
+        android:textColor="#303030"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:text="Nickname: "
+        />
+
+    <TextView
+        app:layout_constraintTop_toBottomOf="@id/breakingbad_character_status"
+        app:layout_constraintStart_toEndOf="@id/breakingbad_character_nickname_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/breakingbad_character_nickname"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:ellipsize="end"
+        android:lineSpacingExtra="3dp"
+        android:textColor="#303030"
+        android:textSize="18sp"
+        android:text="@{breakingBadCharacter.nickname}"
+        tools:text="Ronaldo Joining Manchester United" />
+
+    <TextView
+        app:layout_constraintTop_toBottomOf="@id/breakingbad_character_nickname"
+        app:layout_constraintStart_toStartOf="parent"
+        android:id="@+id/breakingbad_character_season_appearance_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:ellipsize="end"
+        android:lineSpacingExtra="3dp"
+        android:textColor="#303030"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:text="Seasons: "
+        />
+
+
+
+    <TextView
+        app:layout_constraintTop_toBottomOf="@id/breakingbad_character_nickname"
+        app:layout_constraintStart_toEndOf="@id/breakingbad_character_season_appearance_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/breakingbad_character_season_appearance"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:ellipsize="end"
+        android:lineSpacingExtra="3dp"
+        android:textColor="#303030"
+        android:textSize="18sp"
+        android:text="@{breakingBadCharacter.appearance.toString().substring(1, breakingBadCharacter.appearance.toString().length() - 1)}"
+        tools:text="Ronaldo Joining Manchester United" />
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

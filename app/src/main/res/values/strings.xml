@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">BreakingBad</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="breaking_bad_no_results">No Results</string>
+    <string name="breaking_bad_no_results_sub_title">There are no breaking bad characters available as they all passed away</string>
+    <string name="no_network">No network connection</string>
+    <string name="no_network_sub_title">Please check your internet connection</string>
+    <string name="server_error">Server error</string>
+    <string name="server_error_sub_title">We are having some technical issues, please try again later</string>
+    <string name="ok_text">OK</string>
+</resources>
